@@ -2,11 +2,15 @@
   position: relative;
   display: flex;
   justify-content: center;
+  width: 53%;
+  max-width: 300px;
+  min-width: 200px;
 }
 
 .bgImg {
-  width: 200px;
-  // width: 300px;
+  width: 100%;
+  min-width: 200px;
+  max-width: 300px;
 }
 
 .wrapper {
