@@ -1,0 +1,9 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background: var(--gradient-radial);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}

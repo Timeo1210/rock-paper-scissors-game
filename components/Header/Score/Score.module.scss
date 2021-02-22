@@ -1,0 +1,28 @@
+.container {
+  padding: 4% 8%;
+  background: #F1F1F1;
+  color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  // width: 27%;
+  // height: 145%;
+  border-radius: 5%;
+  box-shadow: 4px 9px 30px -6px rgba(0,0,0,0.6);
+}
+
+.label {
+  color: var(--color-score);
+  // font-size: 0.66em;
+  // font-size: 1em;
+  font-size: clamp(0.66rem, 0.5404rem + 0.5103vw, 1rem);
+  letter-spacing: 1px;
+}
+
+.text {
+  // font-size: 2em;
+  // font-size: 4em;
+  font-size: clamp(2rem, 1.2964rem + 3.0019vw, 4rem);
+  font-weight: bold;
+}

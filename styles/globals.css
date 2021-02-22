@@ -1,10 +1,24 @@
+@font-face {
+  font-family: "Barlow Semi Condensed";
+  src: url("/fonts/BarlowSemiCondensed/BarlowSemiCondensed-SemiBold.ttf");
+  font-size: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Barlow Semi Condensed";
+  src: url("/fonts/BarlowSemiCondensed/BarlowSemiCondensed-Bold.ttf");
+  font-size: normal;
+  font-weight: 700;
+}
+
 :root {
-  --gradient-scissors: linear-gradient(hsl(39, 89%, 49%) to hsl(40, 84%, 53%));
-  --gradient-paper: linear-gradient(hsl(230, 89%, 62%) to hsl(230, 89%, 65%));
-  --gradient-rock: linear-gradient(hsl(349, 71%, 52%) to hsl(349, 70%, 56%));
-  --gradient-lizard: linear-gradient(hsl(261, 73%, 60%) to hsl(261, 72%, 63%));
-  --gradient-cyan: linear-gradient(hsl(189, 59%, 53%) to hsl(189, 58%, 57%));
-  --gradient-radial: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --gradient-scissors: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --gradient-paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --gradient-rock: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --gradient-lizard: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --gradient-cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+  --gradient-radial: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 
   --color-dark: hsl(229, 25%, 31%);
   --color-score: hsl(229, 64%, 46%);
@@ -16,6 +30,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Barlow Semi Condensed";
+  color: #f1f1f1;
 }
 
 a {
