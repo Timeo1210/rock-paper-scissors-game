@@ -5,9 +5,13 @@ import withAction from "@/HOC/withAction";
 
 import Item from "@/components/Item";
 
-const ItemPicker: React.FC<{}> = () => {
+interface ItemPickerProps {
+  setUserItem: React.Dispatch<React.SetStateAction<ItemTypes>>;
+}
+
+const ItemPicker: React.FC<ItemPickerProps> = ({ setUserItem }) => {
   const handleAction = (itemType: ItemTypes) => {
-    console.log(itemType);
+    setUserItem(itemType);
   };
   const ItemWithAction = withAction(Item, handleAction);
 
