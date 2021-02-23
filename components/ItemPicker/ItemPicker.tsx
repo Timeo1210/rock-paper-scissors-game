@@ -9,11 +9,9 @@ const ItemPicker: React.FC<{}> = () => {
     <div className={styles.container}>
       <img className={styles.bgImg} src="/images/bg-triangle.svg" />
       <div className={styles.wrapper}>
-        <div className={styles.wrapperUp}>
-          <Item itemType="paper" />
-          <Item itemType="scissors" />
-        </div>
+        <Item itemType="paper" />
         <Item itemType="rock" />
+        <Item itemType="scissors" />
       </div>
     </div>
   );

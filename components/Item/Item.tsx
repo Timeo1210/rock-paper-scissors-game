@@ -14,8 +14,8 @@ const Item: React.FC<ItemProps> = ({ itemType }) => {
 
   return (
     <div
-      onPointerUp={() => setPressed(false)}
       onPointerDown={() => setPressed(true)}
+      onPointerUp={() => setPressed(false)}
       className={styles.container}
     >
       <div
@@ -24,11 +24,13 @@ const Item: React.FC<ItemProps> = ({ itemType }) => {
           boxShadow: pressed ? "none" : "",
           paddingBottom: pressed ? "25%" : "30%",
         }}
-        className={styles.outerBackground}
-      >
-        <div className={styles.innerBackground}></div>
+        className={styles.background}
+      ></div>
+      <div className={styles.imageWrapper}>
+        <div className={styles.square}>
+          <img className={styles.image} src={imgSrc} />
+        </div>
       </div>
-      <img className={styles.image} src={imgSrc} />
     </div>
   );
 };

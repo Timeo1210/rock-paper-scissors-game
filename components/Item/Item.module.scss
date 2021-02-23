@@ -1,33 +1,50 @@
 .container {
+  max-width: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   position: relative;
   cursor: pointer;
 }
 
-.outerBackground {
+.background {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--gradient-rock);
-  height: 225%;
-  width: 225%;
-  padding: 25%;
-  padding-bottom: 30%;
-  border-radius: 50%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
   box-shadow: inset 0px -5px 2px 0px rgba(0,0,0, 0.4);
+  border-radius: 50%;
 }
 
-.innerBackground {
-  background-color: #F1F1F1;
-  height: 100%;
+.square {
+  position: relative;
   width: 100%;
+  height: 100%;
+
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 200px;
+  padding: 15px;
+  background: #F1F1F1;
   border-radius: 50%;
+  position: relative;
   box-shadow: inset 0px 4px 2px 0px rgba(0,0,0,0.35);
 }
 
+
 .image {
-  width: 48px;
-  height: 48px;
-  position: relative;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: block;
 }
