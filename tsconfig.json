@@ -18,7 +18,8 @@
       "@/public/*": ["public/*"],
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
-      "@/hooks/*": ["hooks/*"]
+      "@/hooks/*": ["utils/hooks/*"],
+      "@/HOC/*": ["utils/HOC/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.scss"],
