@@ -5,11 +5,13 @@ import styles from "./ItemPickerTransition.module.scss";
 
 interface ItemPickerTransitionProps {
   inProps: boolean;
+  onExited?: () => void;
 }
 
 const ItemPickerTransition: React.FC<ItemPickerTransitionProps> = ({
   children,
   inProps,
+  onExited,
 }) => {
   return (
     <CSSTransition
@@ -19,6 +21,7 @@ const ItemPickerTransition: React.FC<ItemPickerTransitionProps> = ({
       classNames={{
         exitActive: styles.ItemPickerExit,
       }}
+      onExited={onExited}
     >
       {children}
     </CSSTransition>
