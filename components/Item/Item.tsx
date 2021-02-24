@@ -39,7 +39,7 @@ const Item: React.FC<ItemProps> = ({ itemType, handleAction }) => {
   return (
     <div
       ref={containerRef}
-      onClick={() => handleAction(itemType)}
+      onClick={handleAction ? () => handleAction(itemType) : null}
       className={styles.container}
     >
       <div
