@@ -1,8 +1,10 @@
 import React, { useReducer, useState } from "react";
 
 import ItemPicker from "@/components/ItemPicker";
+import ShowItems from "@/components/ShowItems";
 
 import ItemPickerTransition from "@/Transitions/ItemPickerTransition";
+import ShowItemsTransition from "@/Transitions/ShowItemsTransition";
 
 type ShowComponentValues = "ItemPicker" | "ShowItems";
 
@@ -14,7 +16,11 @@ const GameManager: React.FC<{}> = ({ children }) => {
 
   switch (showComponent) {
     case "ShowItems":
-      return <div>HELLO</div>;
+      return (
+        <ShowItemsTransition inProps={!!userItem}>
+          <ShowItems />
+        </ShowItemsTransition>
+      );
 
     default:
       return (

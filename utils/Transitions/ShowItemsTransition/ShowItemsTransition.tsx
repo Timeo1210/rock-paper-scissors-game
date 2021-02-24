@@ -1,9 +1,9 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 
-import styles from "./ItemPickerTransition.module.scss";
+// import styles from "./ShowItemsTransition.module.scss";
 
-const ItemPickerTransition: React.FC<TransitionProps> = ({
+const ShowItemsTransition: React.FC<TransitionProps> = ({
   children,
   inProps,
   onExited,
@@ -12,10 +12,7 @@ const ItemPickerTransition: React.FC<TransitionProps> = ({
     <CSSTransition
       unmountOnExit
       in={inProps}
-      timeout={{ appear: 0, enter: 0, exit: 300 }}
-      classNames={{
-        exitActive: styles.ItemPickerExit,
-      }}
+      timeout={{ appear: 0, enter: 0, exit: 0 }}
       onExited={onExited}
     >
       {children}
@@ -23,4 +20,4 @@ const ItemPickerTransition: React.FC<TransitionProps> = ({
   );
 };
 
-export default ItemPickerTransition;
+export default ShowItemsTransition;
