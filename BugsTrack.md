@@ -1,3 +1,3 @@
 # Item
 
-- When mouseDown and move cursor out of Item the button freeze
+- Box-shadow are not reponsive (go for %)
