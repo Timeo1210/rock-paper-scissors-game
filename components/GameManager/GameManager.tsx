@@ -18,7 +18,7 @@ const GameManager: React.FC<{}> = ({ children }) => {
     case "ShowItems":
       return (
         <ShowItemsTransition inProps={!!userItem}>
-          <ShowItems />
+          <ShowItems userItem={userItem} />
         </ShowItemsTransition>
       );
 
