@@ -16,7 +16,7 @@ const ShowItems: React.FC<ShowItemsProps> = ({ userItem }) => {
         <span>YOU PICKED</span>
       </div>
       <div className={styles.item}>
-        <Item itemType={userItem} />
+        <Item itemType={null} />
         <span>THE HOUSE PICKED</span>
       </div>
     </div>

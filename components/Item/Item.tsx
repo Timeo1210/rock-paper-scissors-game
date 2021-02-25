@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./Item.module.scss";
 
 interface ItemProps {
-  itemType: ItemTypes;
+  itemType: ItemTypes | null;
   handleAction?: (itemType: ItemTypes) => void;
 }
 
@@ -13,46 +13,59 @@ const Item: React.FC<ItemProps> = ({ itemType, handleAction }) => {
   const [pressed, setPressed] = useState(false);
 
   const imgSrc = `/images/icon-${itemType}.svg`;
-  const background = `var(--gradient-${itemType})`;
+  const outerBackground = `var(--gradient-${itemType})`;
+  const innerBackground = itemType ? "#f1f1f1" : "rgba(22, 25, 33, 0.38)";
 
   useEffect(() => {
-    const handlePointerUp = (e) => {
-      e.preventDefault();
-      setPressed(false);
-    };
-    const handlePointerDown = (e) => {
-      e.preventDefault();
-      if (containerRef.current.contains(e.target)) {
-        setPressed(true);
-      }
-    };
+    if (itemType) {
+      const handlePointerUp = (e) => {
+        e.preventDefault();
+        setPressed(false);
+      };
+      const handlePointerDown = (e) => {
+        e.preventDefault();
+        if (containerRef.current.contains(e.target)) {
+          setPressed(true);
+        }
+      };
 
-    window.addEventListener("mouseup", handlePointerUp);
-    window.addEventListener("mousedown", handlePointerDown);
+      window.addEventListener("mouseup", handlePointerUp);
+      window.addEventListener("mousedown", handlePointerDown);
 
-    return () => {
-      window.removeEventListener("mouseup", handlePointerUp);
-      window.removeEventListener("mousedown", handlePointerDown);
-    };
+      return () => {
+        window.removeEventListener("mouseup", handlePointerUp);
+        window.removeEventListener("mousedown", handlePointerDown);
+      };
+    }
   }, []);
 
   return (
     <div
       ref={containerRef}
-      onClick={handleAction ? () => handleAction(itemType) : null}
       className={styles.container}
+      onClick={handleAction ? () => handleAction(itemType) : null}
     >
+      {itemType && (
+        <div
+          className={styles.background}
+          style={{
+            background: outerBackground,
+            boxShadow: pressed ? "none" : "",
+            paddingBottom: pressed ? "25%" : "30%",
+          }}
+        ></div>
+      )}
       <div
-        style={{
-          background,
-          boxShadow: pressed ? "none" : "",
-          paddingBottom: pressed ? "25%" : "30%",
-        }}
-        className={styles.background}
-      ></div>
-      <div className={styles.imageWrapper}>
+        className={styles.imageWrapper}
+        style={{ background: innerBackground }}
+      >
         <div className={styles.square}>
-          <img draggable="false" className={styles.image} src={imgSrc} />
+          <img
+            className={styles.image}
+            style={{ visibility: itemType ? "visible" : "hidden" }}
+            draggable="false"
+            src={itemType ? imgSrc : null}
+          />
         </div>
       </div>
     </div>
