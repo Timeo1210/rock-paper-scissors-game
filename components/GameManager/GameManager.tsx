@@ -1,9 +1,13 @@
+import React, { useEffect, useState } from "react";
+
 import ItemPicker from "@/components/ItemPicker";
 import ShowItems from "@/components/ShowItems";
+
 import ItemPickerTransition from "@/Transitions/ItemPickerTransition";
 import ShowItemsTransition from "@/Transitions/ShowItemsTransition";
+
 import getWinner from "@/utils/getWinner";
-import React, { useEffect, useState } from "react";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 type ShowComponentValues = "ItemPicker" | "ShowItems";
 
@@ -14,6 +18,8 @@ const generateRandomItem = () => {
 };
 
 const GameManager: React.FC = () => {
+  const { width } = useWindowDimensions();
+
   const [showComponent, setShowComponent] = useState<ShowComponentValues>(
     "ItemPicker"
   );
@@ -40,13 +46,18 @@ const GameManager: React.FC = () => {
   switch (showComponent) {
     case "ShowItems":
       return (
-        <ShowItemsTransition inProps={!!userItem}>
-          <ShowItems
-            userItem={userItem}
-            houseItem={houseItem}
-            whoWin={whoWin}
-          />
-        </ShowItemsTransition>
+        <>
+          <ShowItemsTransition inProps={!!userItem}>
+            <ShowItems
+              userItem={userItem}
+              houseItem={houseItem}
+              whoWin={whoWin}
+            >
+              {whoWin && width > 750 && <p>hello</p>}
+            </ShowItems>
+          </ShowItemsTransition>
+          {whoWin && width <= 750 && <p>hello</p>}
+        </>
       );
 
     default:

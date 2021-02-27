@@ -14,12 +14,14 @@ const ShowItems: React.FC<ShowItemsProps> = ({
   userItem,
   houseItem,
   whoWin,
+  children,
 }) => (
   <div className={styles.container}>
     <div className={styles.item}>
       <Item itemType={userItem} win={whoWin === "user"} />
       <span>YOU PICKED</span>
     </div>
+    {children}
     <div className={styles.item}>
       <Item itemType={houseItem} win={whoWin === "house"} />
       <span>THE HOUSE PICKED</span>
