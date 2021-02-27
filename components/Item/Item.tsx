@@ -4,10 +4,11 @@ import styles from "./Item.module.scss";
 
 interface ItemProps {
   itemType: ItemTypes | null;
+  win?: boolean;
   handleAction?: (itemType: ItemTypes) => void;
 }
 
-const Item: React.FC<ItemProps> = ({ itemType, handleAction }) => {
+const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
   const containerRef = useRef(null);
 
   const [pressed, setPressed] = useState(false);
@@ -47,7 +48,7 @@ const Item: React.FC<ItemProps> = ({ itemType, handleAction }) => {
     >
       {itemType && (
         <div
-          className={styles.background}
+          className={`${styles.background} ${win ? styles.glowing : null}`}
           style={{
             background: outerBackground,
             boxShadow: pressed ? "none" : "",

@@ -48,3 +48,7 @@
   height: 100%;
   display: block;
 }
+
+.glowing {
+  box-shadow: 0 0 2px 4vw rgba(#fff, 0.025), 0 0 1px 8vw rgba(#fff, 0.025), 0 0 1px 14vw rgba(#fff, 0.025);
+}
