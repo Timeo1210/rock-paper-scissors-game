@@ -18,6 +18,7 @@
       "@/public/*": ["public/*"],
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
+      "@/utils/*": ["utils/*"],
       "@/hooks/*": ["utils/hooks/*"],
       "@/HOC/*": ["utils/HOC/*"],
       "@/Transitions/*": ["utils/Transitions/*"]
