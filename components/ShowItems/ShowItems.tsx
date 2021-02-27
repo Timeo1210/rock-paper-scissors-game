@@ -7,21 +7,24 @@ import Item from "@/components/Item";
 interface ShowItemsProps {
   userItem: ItemTypes;
   houseItem: ItemTypes;
+  whoWin: WhoWin;
 }
 
-const ShowItems: React.FC<ShowItemsProps> = ({ userItem, houseItem }) => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.item}>
-        <Item itemType={userItem} win={true} />
-        <span>YOU PICKED</span>
-      </div>
-      <div className={styles.item}>
-        <Item itemType={houseItem} />
-        <span>THE HOUSE PICKED</span>
-      </div>
+const ShowItems: React.FC<ShowItemsProps> = ({
+  userItem,
+  houseItem,
+  whoWin,
+}) => (
+  <div className={styles.container}>
+    <div className={styles.item}>
+      <Item itemType={userItem} win={whoWin === "user"} />
+      <span>YOU PICKED</span>
     </div>
-  );
-};
+    <div className={styles.item}>
+      <Item itemType={houseItem} win={whoWin === "house"} />
+      <span>THE HOUSE PICKED</span>
+    </div>
+  </div>
+);
 
 export default ShowItems;
