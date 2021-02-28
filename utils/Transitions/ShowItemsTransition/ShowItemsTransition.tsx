@@ -7,17 +7,15 @@ const ShowItemsTransition: React.FC<TransitionProps> = ({
   children,
   inProps,
   onExited,
-}) => {
-  return (
-    <CSSTransition
-      unmountOnExit
-      in={inProps}
-      timeout={{ appear: 0, enter: 0, exit: 0 }}
-      onExited={onExited}
-    >
-      {children}
-    </CSSTransition>
-  );
-};
+}) => (
+  <CSSTransition
+    unmountOnExit
+    in={inProps}
+    timeout={{ appear: 0, enter: 0, exit: 0 }}
+    onExited={onExited}
+  >
+    {children}
+  </CSSTransition>
+);
 
 export default ShowItemsTransition;

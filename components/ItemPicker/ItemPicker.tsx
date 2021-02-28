@@ -17,7 +17,11 @@ const ItemPicker: React.FC<ItemPickerProps> = ({ setUserItem }) => {
 
   return (
     <div className={styles.container}>
-      <img className={styles.bgImg} src="/images/bg-triangle.svg" />
+      <img
+        className={styles.bgImg}
+        src="/images/bg-triangle.svg"
+        alt="background triangle"
+      />
       <div className={styles.wrapper}>
         <ItemWithAction itemType="paper" />
         <ItemWithAction itemType="rock" />

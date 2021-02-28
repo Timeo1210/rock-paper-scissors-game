@@ -38,12 +38,15 @@ const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
         window.removeEventListener("mousedown", handlePointerDown);
       };
     }
-  }, []);
+    return () => {};
+  }, [itemType]);
 
   return (
     <div
       ref={containerRef}
       className={styles.container}
+      role="button"
+      tabIndex={0}
       onClick={handleAction ? () => handleAction(itemType) : null}
     >
       {itemType && (
@@ -54,7 +57,7 @@ const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
             boxShadow: pressed ? "none" : "",
             paddingBottom: pressed ? "25%" : "30%",
           }}
-        ></div>
+        />
       )}
       <div
         className={styles.imageWrapper}
@@ -66,6 +69,7 @@ const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
             style={{ visibility: itemType ? "visible" : "hidden" }}
             draggable="false"
             src={itemType ? imgSrc : null}
+            alt="item"
           />
         </div>
       </div>

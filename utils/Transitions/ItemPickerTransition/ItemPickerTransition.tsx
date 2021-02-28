@@ -7,20 +7,18 @@ const ItemPickerTransition: React.FC<TransitionProps> = ({
   children,
   inProps,
   onExited,
-}) => {
-  return (
-    <CSSTransition
-      unmountOnExit
-      in={inProps}
-      timeout={{ appear: 0, enter: 0, exit: 300 }}
-      classNames={{
-        exitActive: styles.ItemPickerExit,
-      }}
-      onExited={onExited}
-    >
-      {children}
-    </CSSTransition>
-  );
-};
+}) => (
+  <CSSTransition
+    unmountOnExit
+    in={inProps}
+    timeout={{ appear: 0, enter: 0, exit: 300 }}
+    classNames={{
+      exitActive: styles.ItemPickerExit,
+    }}
+    onExited={onExited}
+  >
+    {children}
+  </CSSTransition>
+);
 
 export default ItemPickerTransition;
