@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./RulesButton.module.scss";
 
-const RulesButton: React.FC<{}> = () => (
-  <button type="button" className={styles.btn}>
-    <span className={styles.btnLabel}>Rules</span>
-  </button>
-);
+import RulesPopper from "./RulesPopper";
+
+const RulesButton: React.FC<{}> = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className={styles.btn}
+      >
+        <span className={styles.btnLabel}>Rules</span>
+      </button>
+      {open && <RulesPopper closePopper={() => setOpen(false)} />}
+    </>
+  );
+};
 
 export default RulesButton;
