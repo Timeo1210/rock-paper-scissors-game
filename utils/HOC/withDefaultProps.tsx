@@ -2,11 +2,9 @@ import React from "react";
 
 function withDefaultProps<T>(
   WrappedComponent: React.ComponentType<T>,
-  ...defaultProps: any
+  defaultProps: any
 ) {
-  return (props: T) => {
-    <WrappedComponent {...defaultProps} {...props} />;
-  };
+  return (props: T) => <WrappedComponent {...defaultProps} {...props} />;
 }
 
 export default withDefaultProps;
