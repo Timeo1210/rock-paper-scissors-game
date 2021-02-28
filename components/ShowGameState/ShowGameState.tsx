@@ -7,10 +7,12 @@ import ReplayButton from "@/components/ReplayButton";
 interface ShowGameStateProps {
   userWin: boolean;
   isInShowItems?: boolean;
+  onReplayClick?: () => void;
 }
 
 const ShowGameState: React.FC<ShowGameStateProps> = ({
   userWin,
+  onReplayClick,
   isInShowItems = false,
 }) => {
   const text = userWin ? "You Win" : "You Lose";
@@ -20,7 +22,7 @@ const ShowGameState: React.FC<ShowGameStateProps> = ({
       style={{ height: isInShowItems ? "100%" : "auto" }}
     >
       <span className={styles.text}>{text}</span>
-      <ReplayButton />
+      <ReplayButton onClick={onReplayClick} />
     </div>
   );
 };

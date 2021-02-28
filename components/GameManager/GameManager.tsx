@@ -34,6 +34,12 @@ const GameManager: React.FC = () => {
       setHouseItem(generateRandomItem());
     }, 1000);
   };
+  const handleReplayClick = () => {
+    setHouseItem(null);
+    setUserWin(null);
+    setUserItem(null);
+    setShowComponent("ItemPicker");
+  };
 
   useEffect(() => {
     if (houseItem) {
@@ -55,12 +61,19 @@ const GameManager: React.FC = () => {
               userWin={userWin}
             >
               {userWin !== null && width > 750 && (
-                <ShowGameState userWin={userWin} isInShowItems />
+                <ShowGameState
+                  onReplayClick={handleReplayClick}
+                  userWin={userWin}
+                  isInShowItems
+                />
               )}
             </ShowItems>
           </ShowItemsTransition>
           {userWin !== null && width <= 750 && (
-            <ShowGameState userWin={userWin} />
+            <ShowGameState
+              onReplayClick={handleReplayClick}
+              userWin={userWin}
+            />
           )}
         </>
       );
