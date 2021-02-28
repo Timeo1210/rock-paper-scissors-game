@@ -25,7 +25,7 @@ const GameManager: React.FC = () => {
   );
   const [userItem, setUserItem] = useState<ItemTypes | null>(null);
   const [houseItem, setHouseItem] = useState<ItemTypes | null>(null);
-  const [whoWin, setWhoWin] = useState<WhoWin | null>(null);
+  const [userWin, setUserWin] = useState<boolean | null>(null);
 
   const handleItemPicked = () => {
     setShowComponent("ShowItems");
@@ -38,7 +38,7 @@ const GameManager: React.FC = () => {
     if (houseItem) {
       const winner = getWinner(userItem, houseItem);
       setTimeout(() => {
-        setWhoWin(winner);
+        setUserWin(winner === "user");
       }, 750);
     }
   }, [houseItem, userItem]);
@@ -51,12 +51,12 @@ const GameManager: React.FC = () => {
             <ShowItems
               userItem={userItem}
               houseItem={houseItem}
-              whoWin={whoWin}
+              userWin={userWin}
             >
-              {whoWin && width > 750 && <p>hello</p>}
+              {userWin !== null && width > 750 && <p>hello</p>}
             </ShowItems>
           </ShowItemsTransition>
-          {whoWin && width <= 750 && <p>hello</p>}
+          {userWin && width <= 750 && <p>hello</p>}
         </>
       );
 

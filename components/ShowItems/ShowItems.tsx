@@ -7,23 +7,23 @@ import Item from "@/components/Item";
 interface ShowItemsProps {
   userItem: ItemTypes;
   houseItem: ItemTypes;
-  whoWin: WhoWin;
+  userWin: boolean;
 }
 
 const ShowItems: React.FC<ShowItemsProps> = ({
   userItem,
   houseItem,
-  whoWin,
+  userWin,
   children,
 }) => (
   <div className={styles.container}>
     <div className={styles.item}>
-      <Item itemType={userItem} win={whoWin === "user"} />
+      <Item itemType={userItem} win={userWin} />
       <span>YOU PICKED</span>
     </div>
     {children}
     <div className={styles.item}>
-      <Item itemType={houseItem} win={whoWin === "house"} />
+      <Item itemType={houseItem} win={userWin !== null && !userWin} />
       <span>THE HOUSE PICKED</span>
     </div>
   </div>
