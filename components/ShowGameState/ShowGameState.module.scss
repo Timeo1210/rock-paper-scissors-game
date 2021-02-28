@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  font-size: 3em;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+}

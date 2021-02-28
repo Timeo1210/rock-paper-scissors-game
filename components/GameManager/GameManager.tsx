@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import ItemPicker from "@/components/ItemPicker";
 import ShowItems from "@/components/ShowItems";
+import ShowGameState from "@/components/ShowGameState";
 
 import ItemPickerTransition from "@/Transitions/ItemPickerTransition";
 import ShowItemsTransition from "@/Transitions/ShowItemsTransition";
@@ -53,10 +54,14 @@ const GameManager: React.FC = () => {
               houseItem={houseItem}
               userWin={userWin}
             >
-              {userWin !== null && width > 750 && <p>hello</p>}
+              {userWin !== null && width > 750 && (
+                <ShowGameState userWin={userWin} isInShowItems />
+              )}
             </ShowItems>
           </ShowItemsTransition>
-          {userWin && width <= 750 && <p>hello</p>}
+          {userWin !== null && width <= 750 && (
+            <ShowGameState userWin={userWin} />
+          )}
         </>
       );
 
