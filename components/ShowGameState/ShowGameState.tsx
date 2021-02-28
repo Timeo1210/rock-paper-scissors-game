@@ -5,7 +5,7 @@ import styles from "./ShowGameState.module.scss";
 import ReplayButton from "@/components/ReplayButton";
 
 interface ShowGameStateProps {
-  userWin: boolean;
+  userWin?: boolean;
   isInShowItems?: boolean;
   onReplayClick?: () => void;
 }
