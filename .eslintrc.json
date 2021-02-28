@@ -32,6 +32,7 @@
     "import/order": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "object-curly-newline": "off"
   }
 }
