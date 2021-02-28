@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 
 import ItemPicker from "@/components/ItemPicker";
 import ShowItems from "@/components/ShowItems";
@@ -6,6 +6,8 @@ import ShowGameState from "@/components/ShowGameState";
 
 import ItemPickerTransition from "@/Transitions/ItemPickerTransition";
 import ShowItemsTransition from "@/Transitions/ShowItemsTransition";
+
+import { ScoreContext } from "@/Contexts/ScoreContext";
 
 import getWinner from "@/utils/getWinner";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
@@ -29,6 +31,8 @@ const GameManager: React.FC = () => {
   const [houseItem, setHouseItem] = useState<ItemTypes | null>(null);
   const [userWin, setUserWin] = useState<boolean | null>(null);
 
+  const scoreContext = useContext(ScoreContext);
+
   const handleItemPicked = () => {
     setShowComponent("ShowItems");
     setTimeout(() => {
@@ -43,13 +47,16 @@ const GameManager: React.FC = () => {
   };
 
   useEffect(() => {
-    if (houseItem) {
+    if (houseItem && userWin === null) {
       const winner = getWinner(userItem, houseItem);
       setTimeout(() => {
         setUserWin(winner === "user");
+        if (winner === "user") {
+          scoreContext.setScore((scoreContext.score += 1));
+        }
       }, 750);
     }
-  }, [houseItem, userItem]);
+  }, [houseItem, userItem, scoreContext, userWin]);
 
   // GENERATE ShowGameState Component
   const ShowGameStateWithDefaultProps = useMemo(
