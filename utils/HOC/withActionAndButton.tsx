@@ -7,7 +7,7 @@ function withAction<T>(
   handleAction: HandleActionType
 ) {
   return (props: T) => (
-    <WrappedComponent handleAction={handleAction} {...props} />
+    <WrappedComponent isButton handleAction={handleAction} {...props} />
   );
 }
 

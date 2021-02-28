@@ -5,10 +5,16 @@ import styles from "./Item.module.scss";
 interface ItemProps {
   itemType: ItemTypes | null;
   win?: boolean;
+  isButton?: boolean;
   handleAction?: (itemType: ItemTypes) => void;
 }
 
-const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
+const Item: React.FC<ItemProps> = ({
+  itemType,
+  win,
+  isButton = false,
+  handleAction,
+}) => {
   const containerRef = useRef(null);
 
   const [pressed, setPressed] = useState(false);
@@ -18,7 +24,7 @@ const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
   const innerBackground = itemType ? "#f1f1f1" : "rgba(22, 25, 33, 0.38)";
 
   useEffect(() => {
-    if (itemType) {
+    if (itemType && isButton) {
       const handlePointerUp = (e) => {
         e.preventDefault();
         setPressed(false);
@@ -39,15 +45,16 @@ const Item: React.FC<ItemProps> = ({ itemType, win, handleAction }) => {
       };
     }
     return () => {};
-  }, [itemType]);
+  }, [itemType, isButton]);
 
   return (
     <div
       ref={containerRef}
       className={styles.container}
       role="button"
-      tabIndex={0}
+      tabIndex={isButton ? 0 : null}
       onClick={handleAction ? () => handleAction(itemType) : null}
+      style={{ cursor: isButton ? "pointer" : "default" }}
     >
       {itemType && (
         <div

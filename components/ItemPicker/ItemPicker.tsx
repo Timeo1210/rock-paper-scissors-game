@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./ItemPicker.module.scss";
-import withAction from "@/HOC/withAction";
+import withActionAndButton from "@/utils/HOC/withActionAndButton";
 
 import Item from "@/components/Item";
 
@@ -13,7 +13,7 @@ const ItemPicker: React.FC<ItemPickerProps> = ({ setUserItem }) => {
   const handleAction = (itemType: ItemTypes) => {
     setUserItem(itemType);
   };
-  const ItemWithAction = withAction(Item, handleAction);
+  const ItemWithActionAndButton = withActionAndButton(Item, handleAction);
 
   return (
     <div className={styles.container}>
@@ -23,9 +23,9 @@ const ItemPicker: React.FC<ItemPickerProps> = ({ setUserItem }) => {
         alt="background triangle"
       />
       <div className={styles.wrapper}>
-        <ItemWithAction itemType="paper" />
-        <ItemWithAction itemType="rock" />
-        <ItemWithAction itemType="scissors" />
+        <ItemWithActionAndButton itemType="paper" />
+        <ItemWithActionAndButton itemType="rock" />
+        <ItemWithActionAndButton itemType="scissors" />
       </div>
     </div>
   );
