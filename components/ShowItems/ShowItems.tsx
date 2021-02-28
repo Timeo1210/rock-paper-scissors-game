@@ -16,7 +16,10 @@ const ShowItems: React.FC<ShowItemsProps> = ({
   userWin,
   children,
 }) => (
-  <div className={styles.container}>
+  <div
+    className={styles.container}
+    style={{ maxWidth: children ? 1200 : null }}
+  >
     <div className={styles.item}>
       <Item itemType={userItem} win={userWin} />
       <span>YOU PICKED</span>
