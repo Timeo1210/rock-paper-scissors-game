@@ -1,0 +1,23 @@
+.btn {
+  background: transparent;
+  border: 2px solid #F1F1F1;
+  border-radius: 10px;
+  color: #F1F1F1;
+  padding: 0.7em 2.8em;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #F1F1F1;
+    color: var(--color-dark);
+  }
+}
+
+.btnLabel {
+  text-transform: uppercase;
+  font-family: "Barlow Semi Condensed";
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 1.2em;
+}

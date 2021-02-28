@@ -1,0 +1,26 @@
+.ItemPickerExit {
+  --default-transition: all ease 0.3s;
+}
+
+.ItemPickerExit > img {
+  transform: scale(0.65) translateY(-15%);
+  transition: var(--default-transition);
+}
+
+.ItemPickerExit > div {
+
+  & > div:first-child {
+    transform: translate(55%, 55%);
+    transition: var(--default-transition);
+  }
+
+  & > div:nth-child(2) {
+    transform: translate(0, -55%);
+    transition: var(--default-transition);
+  }
+
+  & > div:last-child {
+    transform: translate(-55%, 55%);
+    transition: var(--default-transition);
+  }
+}
