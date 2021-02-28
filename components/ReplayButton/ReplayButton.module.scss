@@ -1,0 +1,27 @@
+.button {
+  background-color: transparent;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  padding: 0;
+  padding: 1em;
+  width: 110%;
+  transform: translateX(-5%);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.text {
+  // color: var(--color-header);
+  color: #f1f1f1;
+  text-transform: uppercase;
+  font-family: "Barlow Semi Condensed";
+  letter-spacing: 2px;
+  font-size: 1.2em;
+}
+
+.button:hover {
+  background-color: #f1f1f1;
+  & .text {
+    color: var(--color-header);
+  }
+}
