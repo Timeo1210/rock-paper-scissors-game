@@ -2,6 +2,8 @@ import React from "react";
 
 import styles from "./ShowGameState.module.scss";
 
+import ReplayButton from "@/components/ReplayButton";
+
 interface ShowGameStateProps {
   userWin: boolean;
   isInShowItems?: boolean;
@@ -18,6 +20,7 @@ const ShowGameState: React.FC<ShowGameStateProps> = ({
       style={{ height: isInShowItems ? "100%" : "auto" }}
     >
       <span className={styles.text}>{text}</span>
+      <ReplayButton />
     </div>
   );
 };
