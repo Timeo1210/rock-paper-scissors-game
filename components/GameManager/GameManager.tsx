@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import ItemPicker from "@/components/ItemPicker";
 import ShowItems from "@/components/ShowItems";
@@ -9,6 +9,7 @@ import ShowItemsTransition from "@/Transitions/ShowItemsTransition";
 
 import getWinner from "@/utils/getWinner";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+import withDefaultProps from "@/HOC/withDefaultProps";
 
 type ShowComponentValues = "ItemPicker" | "ShowItems";
 
@@ -50,6 +51,16 @@ const GameManager: React.FC = () => {
     }
   }, [houseItem, userItem]);
 
+  // GENERATE ShowGameState Component
+  const ShowGameStateWithDefaultProps = useMemo(
+    () =>
+      withDefaultProps(ShowGameState, {
+        userWin,
+        onReplayClick: handleReplayClick,
+      }),
+    [userWin]
+  );
+
   switch (showComponent) {
     case "ShowItems":
       return (
@@ -61,19 +72,12 @@ const GameManager: React.FC = () => {
               userWin={userWin}
             >
               {userWin !== null && width > 750 && (
-                <ShowGameState
-                  onReplayClick={handleReplayClick}
-                  userWin={userWin}
-                  isInShowItems
-                />
+                <ShowGameStateWithDefaultProps isInShowItems />
               )}
             </ShowItems>
           </ShowItemsTransition>
           {userWin !== null && width <= 750 && (
-            <ShowGameState
-              onReplayClick={handleReplayClick}
-              userWin={userWin}
-            />
+            <ShowGameStateWithDefaultProps />
           )}
         </>
       );
